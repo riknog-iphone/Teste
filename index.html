@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Pixel</title>
+    <!-- Fonte pixelada (carrega do Google Fonts se houver internet; se não, usa monospace como fallback) -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #ffffff;
+            color: #000000;
+            font-family: 'VT323', monospace;
+            font-size: 26px; /* Tamanho grande para leitura confortável no e-ink */
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+            margin: 40px 0;
+            letter-spacing: 4px;
+        }
+        h2 {
+            font-size: 40px;
+            margin: 40px 0;
+        }
+        /* Animação de ondas em low frame (salta de quadro em quadro, como animação retro) */
+        .waves {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 40px 0;
+            font-size: 36px;
+            height: 50px;
+        }
+        .wave-content {
+            display: inline-block;
+            padding-left: 100%; /* Começa fora da tela */
+            animation: wave-scroll 20s linear infinite;
+        }
+        @keyframes wave-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        /* Low frame: força apenas 8 quadros por ciclo (animação "pobre" e retro) */
+        .wave-content {
+            animation-timing-function: steps(8, end);
+        }
+        /* Estilo dos itens da biblioteca (parecem capas de livros pixeladas) */
+        .book-item {
+            cursor: pointer;
+            margin: 40px auto;
+            width: 300px;
+            padding: 30px;
+            background: #000000;
+            color: #ffffff;
+            border: 8px solid #000000;
+            box-shadow: 0 0 0 8px #ffffff inset; /* Efeito "página aberta" */
+        }
+        .book-item h3 {
+            font-size: 32px;
+            margin: 0;
+        }
+        .book-item p {
+            font-size: 24px;
+            margin: 10px 0 0;
+        }
+        /* Conteúdo dos livros */
+        .book-content {
+            display: none;
+            padding: 40px;
+        }
+        .poem {
+            font-size: 28px;
+            white-space: pre-line;
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        button {
+            font-family: 'VT323', monospace;
+            font-size: 28px;
+            padding: 15px 30px;
+            margin: 50px;
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #333333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Página inicial - Biblioteca -->
+    <div id="home">
+        <h1>Biblioteca Pixel</h1>
+        
+        <!-- Ondas animadas em low frame -->
+        <div class="waves">
+            <div class="wave-content">
+                ∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼
+                ∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼
+            </div>
+        </div>
+        
+        <p>Bem-vindo à sua biblioteca pessoal em estilo pixel art preto e branco.</p>
+        <p>Selecione um livro para ler:</p>
+        
+        <div class="book-item" onclick="openBook('book1')">
+            <h3>Eu amo as ondas dos seus cachos</h3>
+            <p>Uma declaração poética</p>
+        </div>
+        
+        <!-- Adicione mais livros aqui copiando o bloco acima e criando um novo div abaixo -->
+    </div>
+
+    <!-- Livro 1 -->
+    <div id="book1" class="book-content">
+        <h2>Eu amo as ondas dos seus cachos</h2>
+        
+        <div class="poem">
+Eu amo as ondas dos seus cachos,
+que se enrolam suaves como o mar em calmaria,
+cada espiral um convite ao toque,
+cada curva uma história tecida pelo vento.
+
+Quando você move a cabeça,
+elas dançam livres, rebeldes,
+ondas de ébano ou mel
+que capturam a luz e meu olhar.
+
+Quero mergulhar nesses mares,
+afagar cada fio com dedos trêmulos,
+sentir a textura que só você tem —
+macia, viva, cheia de segredos.
+
+Seus cachos são o mapa do meu desejo,
+o refúgio onde meu coração se esconde.
+Neles encontro calmaria e tempestade,
+paz e paixão em perfeita harmonia.
+
+Eu me perco voluntariamente
+nessas ondas que são só suas,
+e nelas me declaro,
+eternamente,
+
+apaixonado por você.
+        </div>
+        
+        <button onclick="goHome()">Voltar à Biblioteca</button>
+    </div>
+
+    <script>
+        function openBook(id) {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+        }
+        function goHome() {
+            document.getElementById('home').style.display = 'block';
+            document.querySelectorAll('.book-content').forEach(function(el) {
+                el.style.display = 'none';
+            });
+        }
+    </script>
+
+</body>
+</html>
